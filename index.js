@@ -37,7 +37,7 @@ app.get('/songs/:name', (req, res)=>{
 app.post('/songs', upload.single('song'), function(req, res) {
     var songsFile = path.join(__dirname, 'songs.json');
     var name = req.file.originalname;
-    fs.readFile(archivoCanciones, 'utf8', function(err, file) {
+    fs.readFile(songsFile, 'utf8', function(err, file) {
         if (err) throw err;
         var songs = JSON.parse(file);
         songs.push({name: name});
